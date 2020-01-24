@@ -41,3 +41,8 @@ font-size: 24px;
 #movie-view{
   color: aliceblue;
 }
+
+img{
+ 
+  max-height: 100px ;
+}

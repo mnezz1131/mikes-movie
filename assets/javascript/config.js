@@ -11,6 +11,7 @@ $("#find-movie").on("click", function(event) {
     event.preventDefault();
     // Here we grab the text from the input box
     var movie = $("#movie-input").val();
+    $("#movie-input").empty();  //clears out the div
 //=================================================================================================================================
     const url = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term='+movie+'&country=us'
     const options = {
@@ -28,13 +29,22 @@ $("#find-movie").on("click", function(event) {
   //  console.log(myJson);
     var utellyResp =(myJson);
     console.log(utellyResp);
-   $("#movie-view").text(JSON.stringify(myJson));
+   //$("#movie-view").text(JSON.stringify(myJson));
  
 console.log(utellyResp.results);
 console.log(utellyResp.results[0].name);
 console.log(utellyResp.results[0].locations[0].display_name);
 
-
+//Loop through to get movie name
+for(i=0; i < utellyResp.results.length; i++ ){
+    console.log(utellyResp.results[i].name);
+    $("#movie-view").append("<ul>"+utellyResp.results[i].name+"</ul>");
+    $("#movie-view").append("<img src= "+utellyResp.results[i].picture+">");
+}
+//Loop to get streaming service
+for(a=0; a < utellyResp.results[0].locations.length; a++ ){
+    console.log( utellyResp.results[0].locations[a].display_name);
+}
 });
 });
 //================================================================================================================================     
