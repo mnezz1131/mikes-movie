@@ -39,7 +39,7 @@ console.log(utellyResp.results[0].locations[0].display_name);
 for(i=0; i < utellyResp.results.length; i++ ){
     console.log(utellyResp.results[i].name);
     $("#movie-view").append("<ul>"+utellyResp.results[i].name+"</ul>");
-    $("#movie-view").append("<img src= "+utellyResp.results[i].picture+">");
+    $("#movie-view").append("<a href ='https://mnezz1131.github.io/mikes-movie/movie.html'> <img src= "+utellyResp.results[i].picture+"></a>");
 }
 //Loop to get streaming service
 for(a=0; a < utellyResp.results[0].locations.length; a++ ){
